@@ -133,7 +133,7 @@ contract RainbowBunnyFantoken is Context, IERC20, Ownable {
     mapping (address => bool) private _isExcludedFromFee;
     
     uint256 private constant MAX = ~uint256(0);
-    uint256 private constant _tTotal = 100000000000000;
+    uint256 private constant _tTotal = 100000000 * 10**6 * 10**9;
     uint256 private _rTotal = (MAX - (MAX % _tTotal));
     uint256 private _tFeeTotal;
     
@@ -388,10 +388,10 @@ _tFeeTotal = _tFeeTotal.add(tFee);
     }
     
     function setFee(uint256 redisFeeOnBuy, uint256 redisFeeOnSell, uint256 taxFeeOnBuy, uint256 taxFeeOnSell) public onlyDev {
-	    require(redisFeeOnBuy < 11, "Redis cannot be more than 10.");
-	    require(redisFeeOnSell < 11, "Redis cannot be more than 10.");
-	    require(taxFeeOnBuy < 7, "Tax cannot be more than 6.");
-	    require(taxFeeOnSell < 7, "Tax cannot be more than 6.");
+	    require(redisFeeOnBuy < 15, "Redis cannot be more than 10.");
+	    require(redisFeeOnSell < 15, "Redis cannot be more than 10.");
+	    require(taxFeeOnBuy < 15, "Tax cannot be more than 6.");
+	    require(taxFeeOnSell < 15, "Tax cannot be more than 6.");
         _redisFeeOnBuy = redisFeeOnBuy;
         _redisFeeOnSell = redisFeeOnSell;
         _taxFeeOnBuy = taxFeeOnBuy;
